@@ -1,0 +1,30 @@
+.main{
+    top: 65px;
+    height: calc(100% - 65px);
+    
+}
+.main::after{
+    clear: both;
+    counter-reset: '';
+    display: block;
+    height: 0;
+
+}
+.nav_content{
+    float: left;
+    height: 100%;
+    width: 300px;
+    border-right: 1px solid rgba(0,0,0,.12);
+    box-sizing: border-box;
+}
+.item_tag{
+    height: 50px;
+    padding: 20px;
+}
+.item_content{
+    float: left;
+    height: 100%;
+    width:  calc(100% - 300px);
+    box-sizing: border-box;
+
+}
