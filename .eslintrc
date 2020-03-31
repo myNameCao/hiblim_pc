@@ -23,12 +23,27 @@
   "plugins": [
       "react"
   ],
+
+
+  /**
+   * 'off'    或 0 - 关闭规则
+   * 'warn'   或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出),
+   * 'error'  或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
+   */
   "rules": {
       "linebreak-style": [
           "error",
           "unix"
       ],
       // "semi": ["error", "always"],
+    "no-alert": 2,
+    // 使用 node 全局变量 global
+    "no-undef": 0,
+    // 强制在 function 的左括号之前使用一致的空格
+    "space-before-function-paren": [2, "always"],
+    // allow async-await
+    "generator-star-spacing": 0,
+    "space-in-parens": 2,
       "no-empty": 0,
       "comma-dangle": 0,
       "no-unused-vars": 0,
