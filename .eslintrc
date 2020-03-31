@@ -35,7 +35,6 @@
           "error",
           "unix"
       ],
-      // "semi": ["error", "always"],
     "no-alert": 2,
     // 使用 node 全局变量 global
     "no-undef": 0,
@@ -44,7 +43,6 @@
     // allow async-await
     "generator-star-spacing": 0,
 
-    
     "no-unused-vars": [2, { "varsIgnorePattern": "React" }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
     "no-multiple-empty-lines": [1, {"max": 2}],
