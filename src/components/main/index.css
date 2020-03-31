@@ -19,7 +19,18 @@
 }
 .item_tag{
     height: 50px;
-    padding: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    line-height: 30px;
+}
+.item_tag span{
+   margin-right: 20px;
+   
+}
+.active_tag{
+    background: #00c2e0;
+    color: white;
 }
 .item_content{
     float: left;

@@ -13,7 +13,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 ;
 }
 table { border-collapse: collapse; border-spacing: 0; }
-html,body{-webkit-text-size-adjust: 100%;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+html,body{-webkit-text-size-adjust: 100%;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);  color: #55686e;}
 fieldset, img { border: 0; }
 address, caption, cite, code, dfn, em, th, var { font-style: normal; font-weight: normal; }
 
