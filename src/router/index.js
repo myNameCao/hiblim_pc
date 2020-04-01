@@ -3,12 +3,13 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:01:59
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-03-31 22:47:07
+ * @LastEditTime: 2020-04-01 10:44:54
  */
 
 import React from 'react';
-import { Route, Switch} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 function RouteView ({routes}){
+
   return(<Switch>
 {routes.map((route, i) => ( 
             <Route

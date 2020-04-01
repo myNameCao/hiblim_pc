@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-03-31 21:38:54
+ * @LastEditTime: 2020-04-01 10:56:59
  */
 
 import React from 'react';
@@ -13,32 +13,48 @@ import routes from '../../router/routes';
 import {
   BrowserRouter as Router,
   Link,
+  useLocation
 } from "react-router-dom"
 
 import './index.css'
 
-function Main () {
+
+function TagList (){
+
+  let {pathname} = useLocation();
+  console.log(pathname)
 
   return (
-    <div className="main"> 
-    <Router>
+    <div className="main">    
       <ul  className='nav_content'>
-        <li className='item_tag  active_tag'>
-          <span  className='icon-office'></span>
-          <Link to="/home">Home</Link>
+        <li className={(pathname === '/' || pathname === '/home') ? 'item_tag  active_tag' : 'item_tag'}>
+          <Link to="/home">
+           <span  className='icon-office iconFont'></span>
+            Home
+            </Link>
         </li>
-        <li className='item_tag'>
-          <span  className='icon-mail-envelope-open'></span>
-          <Link to="/mailroom">Mailroom</Link>
+        <li className={pathname === '/mailroom' ? 'item_tag  active_tag' : 'item_tag'}>
+          <Link to="/mailroom">
+          <span  className='icon-mail-envelope-open  iconFont'></span>
+            Mailroom
+            </Link>
         </li>
       </ul>
       <div  className='item_content'>
        <RouteView  routes={routes}/>
       </div>
-      </Router>
     </div>
   );
 }
+
+function Main () {
+  return (
+    <Router>
+      <TagList />
+    </Router>
+  )
+}
+
 
 export default Main;
 

@@ -21,15 +21,24 @@
     height: 50px;
     padding: 10px;
     box-sizing: border-box;
-    font-size: 20px;
     line-height: 30px;
 }
-.item_tag span{
-   margin-right: 20px;
-   
+.iconFont{
+    font-size: 20px;
+    margin-right: 15px;
+}
+.item_tag a{
+    display: block;
+    font-size: 14px;
+    color: #55686e;
+    width: 100%;
+    height: 100%;
 }
 .active_tag{
     background: #00c2e0;
+    color: white;
+}
+.active_tag a{
     color: white;
 }
 .item_content{
