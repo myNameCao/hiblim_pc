@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-01 10:56:59
+ * @LastEditTime: 2020-04-02 09:19:39
  */
 
 import React from 'react';
@@ -22,7 +22,6 @@ import './index.css'
 function TagList (){
 
   let {pathname} = useLocation();
-  console.log(pathname)
 
   return (
     <div className="main">    

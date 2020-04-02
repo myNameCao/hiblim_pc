@@ -1,18 +1,18 @@
 
 import React from 'react';
-
+import RouteView from './router';
+import routes from './router/routes';
 import './App.css';
-
-import Head from './components/head'
-import Main from './components/main'
-
+import {
+  BrowserRouter as Router,
+} from "react-router-dom"
 
 function App () {
-
   return (
     <div className="App">
-      <Head></Head>
-      <Main></Main>
+         <Router>
+           <RouteView  routes={routes}/>
+         </Router>
     </div>
   );
 }
