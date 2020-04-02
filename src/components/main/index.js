@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-02 09:30:56
+ * @LastEditTime: 2020-04-02 10:18:53
  */
 
 import React from 'react';
@@ -20,14 +20,14 @@ function Main ({routes}) {
   return (
     <div className="main">    
       <ul  className='nav_content'>
-        <li className={(pathname === '/' || pathname === '/home') ? 'item_tag  active_tag' : 'item_tag'}>
-          <Link to="/home">
+        <li className={ pathname === '/onboarding/home' ? 'item_tag  active_tag' : 'item_tag'}>
+          <Link to="/onboarding/home">
            <span  className='icon-office iconFont'></span>
             Home
             </Link>
         </li>
-        <li className={pathname === '/mailroom' ? 'item_tag  active_tag' : 'item_tag'}>
-          <Link to="/mailroom">
+        <li className={pathname === '/onboarding/mailroom' ? 'item_tag  active_tag' : 'item_tag'}>
+          <Link to="/onboarding/mailroom">
           <span  className='icon-mail-envelope-open  iconFont'></span>
             Mailroom
             </Link>

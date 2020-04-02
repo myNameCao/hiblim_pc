@@ -7,16 +7,14 @@
  */
 
 import React from 'react';
-import Head from '../../components/head'
-import Main from '../../components/main'
+import { Redirect  } from 'react-router-dom'
+
+
 import './index.css'
-function Index ({routes}){
-    return ( 
-  <div className='index'>
-      <Head></Head>
-      <Main  routes={routes} ></Main>
-  </div>
-  )
-  }
-  export default Index
+function Index (props){
+  let sigin = 1
+  return sigin ? <Redirect to={{ pathname: "/onboarding/home"}} /> : <Redirect  to={{pathname: "/login"}} />
+  
+}
+export default Index
 
