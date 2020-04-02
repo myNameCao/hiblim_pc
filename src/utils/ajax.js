@@ -2,8 +2,9 @@
 
 const axios = require('axios').default
 const {path}  = require('../lib/baseApi').default
+
 const instance = axios.create({
-  baseURL:'https://hblapi.yunfengsu.com.cn',
+  baseURL:process.env.REACT_APP_HOST,
   timeout: 15000,
   contentType: 'application/json',
   complete: function (xhr, status) {
