@@ -3,9 +3,12 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-01 20:44:20
+ * @LastEditTime: 2020-04-02 13:16:01
  */
 import React, {useState} from 'react'
+import {ajax} from '../../utils/ajax'
+
+
 import './index.css'
  const list = [
    {
@@ -59,6 +62,20 @@ const addressList = [
 ]
   
  function Home (){
+
+
+  ajax({
+    type:'post',
+    url:'checkName',
+    data:{
+      phone:1,
+      company_en:1,
+      company_cn:1
+    },
+    success (res){
+
+    }
+  })
   const [current, setcurrent] = useState(3);
   //page1
   const [nameEn, setNameEN] = useState('') //  英文公司名字
