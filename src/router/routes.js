@@ -1,11 +1,15 @@
 
 
 // import layer from '../pages/layer'
+import asyncComponent  from './asyncComponent'
+
 import index from '../pages/index'
-import login from '../pages/login'
-import onboarding from '../pages/onboarding'
-import home from '../pages/home'
-import mailroom from '../pages/mailroom'
+
+
+const home = asyncComponent(() => import('../pages/home'));
+const login = asyncComponent(() => import("../pages/login"));
+const onboarding = asyncComponent(() => import("../pages/onboarding"));
+const mailroom = asyncComponent(() => import("../pages/mailroom"));
 
 const routes = [
   {
