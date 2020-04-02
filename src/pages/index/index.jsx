@@ -10,16 +10,13 @@ import React from 'react';
 import Head from '../../components/head'
 import Main from '../../components/main'
 import './index.css'
-
-
-  function Index (){
+function Index ({routes}){
     return ( 
   <div className='index'>
-    <Head></Head>
-    <Main></Main>
+      <Head></Head>
+      <Main  routes={routes} ></Main>
   </div>
-    )
+  )
   }
-
   export default Index
 

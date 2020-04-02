@@ -1,6 +1,6 @@
 
 
-import layer from '../pages/layer'
+// import layer from '../pages/layer'
 import index from '../pages/index'
 import home from '../pages/home'
 import mailroom from '../pages/mailroom'
