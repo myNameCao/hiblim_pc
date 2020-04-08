@@ -11,6 +11,7 @@ const login = asyncComponent(() => import("../pages/login"));
 const onboarding = asyncComponent(() => import("../pages/onboarding"));
 const mailroom = asyncComponent(() => import("../pages/mailroom"));
 
+
 const routes = [
   {
     path: '/',

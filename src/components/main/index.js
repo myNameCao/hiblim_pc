@@ -3,11 +3,12 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-02 10:18:53
+ * @LastEditTime: 2020-04-04 17:00:04
  */
 
 import React from 'react';
 import RouteView from '../../router';
+
 import {
   Link,
   useLocation
@@ -34,7 +35,7 @@ function Main ({routes}) {
         </li>
       </ul>
       <div  className='item_content'>
-        <RouteView  routes={routes}/>
+            <RouteView  routes={routes}/>
       </div>
     </div>
   );

@@ -7,17 +7,23 @@
  */
 
 import React from 'react';
-import RouteView from '../../router';
+
+
+import {
+  CSSTransition
+} from "react-transition-group";
+
 import './index.css'
-
-
-  function layer ({routes}){
-    return ( 
-  <div className="layer">
-    <RouteView routes={routes} ></RouteView>
-  </div>
-    )
+  export default (Component)=>{
+    return function layer (){
+         return ( 
+         <CSSTransition
+                 classNames="fade"
+                 timeout={300}
+               >
+              <div>11</div>
+         </CSSTransition>
+         )
+       }
   }
-
-  export default layer
 

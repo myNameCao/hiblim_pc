@@ -1,9 +1,10 @@
 import React from 'react';
+import './index.css'
 
 
  function mailroom (){
    return (
-     <div>mailroom</div>
+     <div className='mailroom' >mailroom</div>
    )
  }
 
