@@ -11,7 +11,6 @@ import Head from '../../components/head'
 import Main from '../../components/main'
 import './index.css'
 function Index ({routes}){
-  
     return ( 
   <div className='index'>
       <Head></Head>

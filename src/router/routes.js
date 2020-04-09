@@ -5,12 +5,10 @@ import asyncComponent  from './asyncComponent'
 
 import index from '../pages/index'
 
-
 const home = asyncComponent(() => import('../pages/home'));
 const login = asyncComponent(() => import("../pages/login"));
 const onboarding = asyncComponent(() => import("../pages/onboarding"));
 const mailroom = asyncComponent(() => import("../pages/mailroom"));
-
 
 const routes = [
   {
