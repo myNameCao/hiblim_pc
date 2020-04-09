@@ -1,0 +1,74 @@
+
+.loadPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(255, 255, 255);
+  }
+  .loadPage .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -60rpx 0 0 -60rpx;
+    width: 120rpx;
+    height: 120rpx;
+    text-align: center;
+    font-size: 10rpx;
+  }
+  .loadPage .container .spinner {
+    width: 120rpx;
+    height: 100rpx;
+    text-align: center;
+  }
+  .loadPage .container .spinner .rect {
+    background-color: #3091f2;
+    height: 100%;
+    width: 10rpx;
+    display: inline-block;
+    margin: 2rpx;
+    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+            animation: stretchdelay 1.2s infinite ease-in-out;
+  }
+  .loadPage .container .spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+  }
+  .loadPage .container .spinner .rect3 {
+    -webkit-animation-delay: -1s;
+            animation-delay: -1s;
+  }
+  .loadPage .container .spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+  }
+  .loadPage .container .spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+  }
+  @-webkit-keyframes stretchdelay {
+    0%,
+    40%,
+    to {
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
+    }
+    20% {
+      transform: scaleY(1);
+      -webkit-transform: scaleY(1);
+    }
+  }
+  @keyframes stretchdelay {
+    0%,
+    40%,
+    to {
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
+    }
+    20% {
+      transform: scaleY(1);
+      -webkit-transform: scaleY(1);
+    }
+  }
+  
