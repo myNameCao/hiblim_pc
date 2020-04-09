@@ -4,7 +4,7 @@ import RouteView from './router';
 import routes from './router/routes';
 import './App.css';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
 } from "react-router-dom"
 
 function App () {
