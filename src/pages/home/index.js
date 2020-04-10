@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-10 10:55:32
+ * @LastEditTime: 2020-04-10 12:34:20
  */
 import React, {useState} from 'react'
 // import {ajax} from '../../utils/ajax'
@@ -76,7 +76,7 @@ const addressList = [
 
   //   }
   // })
-  const [current, setcurrent] = useState(1);
+  const [current, setcurrent] = useState(2);
   const [errorCurrent, seterrorCurrent] = useState('')//  显示错误的地方
   
   //page1
@@ -163,7 +163,63 @@ function delStock (obj){
   })
 
 }
+ function checkout (page){
+   if(page === 1){
+      if(!nameEn && !nameCn && !nameCn1){
+        seterrorCurrent('nameEn')
+        return
+      }
+      if(!nature){
+        seterrorCurrent('nature')
+        return
+  
+      }
+      if(!desNature){
+        seterrorCurrent('desNature')
+        return
+      }
+      if(!country){
+        seterrorCurrent('country')
+        return 
+      }
+      setcurrent(2)
+   }
+   if(page === 2){
+    if(!shares){
+      seterrorCurrent('shares')
+      setTimeout(()=>seterrorCurrent(''), 500)
+      return
+    }
+    if(shares === 'others' && !sharesDes){
+      seterrorCurrent('sharesDes')
+      return
+    }
+    if(!sharesNum){
+      seterrorCurrent('sharesNum')
+      return
+    }
+    if(!oneValue_shares){
+      seterrorCurrent('oneValue_shares')
+      
+      return
+    }
+    if(!fundsForm.length){
 
+      seterrorCurrent('fundsForm')
+      setTimeout(()=>seterrorCurrent(''), 500)
+      return
+    }
+    if(fundsForm.includes('others') && !fundsDes){
+      seterrorCurrent('fundsDes')
+      return
+    }
+    if(!fundsCountry){
+      seterrorCurrent('fundsCountry')
+      return
+    }
+    setcurrent(3)
+   }
+ }
 
   //page4
   const [ address, setAddress ] = useState('')
@@ -185,34 +241,34 @@ function delStock (obj){
        </div>
        <div  className='page'>
          {current === 1  && <div  className='page1'>
-          <div className='inputItem'>
+          <div className={errorCurrent === 'nameEn' ? 'inputItem error_b' : 'inputItem'}>
             <p>公司名字（首选）: 中文/英文</p>
-            <input    onChange={e=>setNameEN(e.target.value)} value={nameEn}  />
+            <input    onChange={e=>setNameEN(e.target.value)} value={nameEn}  onFocus={e=>seterrorCurrent('')} />
           </div>
-          <div className='inputItem'>
+          <div className='inputItem'  >
             <p>公司名字（次选）：中文/英文</p>
-            <input     onChange={e=>setNameCN(e.target.value)} value={nameCn} />
+            <input     onChange={e=>setNameCN(e.target.value)} value={nameCn}  onFocus={e=>seterrorCurrent('')}  />
           </div>
           <div className='inputItem'>
             <p>公司名字（三选）：中文/英文</p>
-            <input   onChange={e=>setNameCN1(e.target.value)} value={nameCn1}  />
+            <input   onChange={e=>setNameCN1(e.target.value)} value={nameCn1}  onFocus={e=>seterrorCurrent('')}   />
           </div>
-          <div className='inputItem'>
+          <div  className={errorCurrent === 'nature' ? 'inputItem error_b' : 'inputItem'} >
             <p>经营性质 (贸易，咨询，软件，制造等)</p>
-            <input    onChange={e=>setNature(e.target.value)} value={nature}   />
+            <input    onChange={e=>setNature(e.target.value)} value={nature}  onFocus={e=>seterrorCurrent('')}  />
           </div>
-          <div  className='textareaItem'>
+          <div    className={errorCurrent === 'desNature' ? 'textareaItem error_b' : 'textareaItem'} >
                   <p>主营业务描述（不少于100字符）</p>
-                  <textarea     onChange={e=>setDesNature(e.target.value)} value={desNature}   type='text'/>
+                  <textarea     onChange={e=>setDesNature(e.target.value)} value={desNature}   onFocus={e=>seterrorCurrent('')}   type='text'/>
             </div>
-          <div className='inputItem'>
+          <div  className={errorCurrent === 'country' ? 'inputItem error_b' : 'inputItem'} >
             <p>经营地点（国家）</p>
-            <input   onChange={e=>setCountry(e.target.value)} value={country}   />
+            <input   onChange={e=>setCountry(e.target.value)} value={country} onFocus={e=>seterrorCurrent('')} />
           </div>
-          <div  className='action_line'>   <button  className='btn fr'  onClick={()=>{setcurrent(2)}}>下一步</button> </div>
+          <div  className='action_line'>   <button  className='btn fr'  onClick={()=>{checkout(1)}}>下一步</button> </div>
          </div>}
          {current === 2  && <div  className='page2'>
-          <div className='module'>
+          <div   className={errorCurrent === 'shares' ? 'module error_module' : 'module'}>
              <h3 className='title'>股份类别</h3>
              {typeList.map((type, index)=>{
                return (
@@ -223,19 +279,19 @@ function delStock (obj){
                )
              })}
           </div>
-          {shares === 'others' && <div className='inputItem'>
+          {shares === 'others' && <div className={errorCurrent === 'sharesDes' ? 'inputItem error_b' : 'inputItem'} >
             <p>如选其他股份类别，请指明</p>
-            <input     value={sharesDes} onChange={e=>setsharesDes(e.target.value)}  />
+            <input    onFocus={e=>seterrorCurrent('')}  value={sharesDes} onChange={e=>setsharesDes(e.target.value)}  />
           </div>}
-          <div className='inputItem'>
+          <div className={errorCurrent === 'sharesNum' ? 'inputItem error_b' : 'inputItem'} >
             <p>股份数量（建议1000股）</p>
-            <input  type='number'   value={sharesNum}  onChange={e=>setsharesNum(e.target.value)} />
+            <input  onFocus={e=>seterrorCurrent('')} type='number'   value={sharesNum}  onChange={e=>setsharesNum(e.target.value)} />
           </div>
-          <div className='inputItem'>
+          <div className={errorCurrent === 'oneValue_shares' ? 'inputItem error_b' : 'inputItem'} >
             <p>每股价值（如每股1美金）</p>
-            <input  value={oneValue_shares}  onChange={e=>setoneValue_shares(e.target.value)}  />
+            <input  onFocus={e=>seterrorCurrent('')}  value={oneValue_shares}  onChange={e=>setoneValue_shares(e.target.value)}  />
           </div>
-          <div className='module'>
+          <div  className={errorCurrent === 'fundsForm' ? 'module error_module' : 'module'} >
              <h3 className='title'>资金来源</h3>
              {radioList.map((item, index)=>{
                return (
@@ -246,15 +302,15 @@ function delStock (obj){
                )
              })}
           </div>
-         {fundsForm.includes('others') &&  <div className='inputItem'>
-            <p>如选其他资金来源，请指明)</p>
-            <input  value={fundsDes} onChange={e=>{setFundsDes(e.target.value)}}  />
+         {fundsForm.includes('others') &&  <div className={errorCurrent === 'fundsDes' ? 'inputItem error_b' : 'inputItem'} >
+            <p>如选其他资金来源，请指明</p>
+            <input  onFocus={e=>seterrorCurrent('')}  value={fundsDes} onChange={e=>{setFundsDes(e.target.value)}}  />
           </div> }
-          <div className='inputItem'>
+          <div className={errorCurrent === 'fundsCountry' ? 'inputItem error_b' : 'inputItem'} >
             <p>资金来源地（国家）</p>
-            <input  value={fundsCountry} onChange={e=>{setfundsCountry(e.target.value)}} />
+            <input    onFocus={e=>seterrorCurrent('')}  value={fundsCountry} onChange={e=>{setfundsCountry(e.target.value)}} />
           </div>
-          <div  className='action_line'>    <button  className='btn fl'  onClick={()=>{setcurrent((index)=>index - 1)}}>上一步</button>  <button  className='btn fr'  onClick={()=>{setcurrent((index)=>index + 1)}}>下一步</button> </div>
+          <div  className='action_line'>    <button  className='btn fl'  onClick={()=>{setcurrent((index)=>index - 1)}}>上一步</button>  <button  className='btn fr'  onClick={()=>{checkout(2)}}>下一步</button> </div>
          </div>}
 
          {current === 3  && <div  className='page3'>

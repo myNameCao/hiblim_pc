@@ -63,7 +63,12 @@
   height: 35px;
   border-bottom: 1px #0000006b solid;
   box-sizing: border-box;
-
+}
+.error_b{
+  border-color:  #ff2122 !important;
+}
+.error_b  p{
+  color: #ff2122;
 }
 .textareaItem{
   position: relative;
@@ -136,7 +141,11 @@
 
 .module{
   margin-bottom: 60px;
-  border: 1px #00000061 solid;  
+  border: 1px #00000061 solid; 
+
+}
+.error_module{
+  border-color: red;
 }
 .module .title{
   height: 40px;
