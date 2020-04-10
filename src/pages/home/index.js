@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-04 17:15:17
+ * @LastEditTime: 2020-04-10 10:55:32
  */
 import React, {useState} from 'react'
 // import {ajax} from '../../utils/ajax'
@@ -76,7 +76,9 @@ const addressList = [
 
   //   }
   // })
-  const [current, setcurrent] = useState(3);
+  const [current, setcurrent] = useState(1);
+  const [errorCurrent, seterrorCurrent] = useState('')//  显示错误的地方
+  
   //page1
   const [nameEn, setNameEN] = useState('') //  英文公司名字
   const [nameCn, setNameCN] = useState('') //  中文 公司名字的
