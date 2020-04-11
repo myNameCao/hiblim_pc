@@ -30,3 +30,20 @@ export const  ajax = (P) => {
 } //web请求: ajax封装
 
 
+export const  checkoutTel = (srt)=>{
+
+   /*eslint no-useless-escape: "off"*/
+  const telReg = {
+     'en-HK':/^(\+?852\-?)?[569]\d{3}\-?\d{4}$/,
+     'zh-CN':/^(\+?0?86\-?)?1[345789]\d{9}$/,
+     'zh-TW':/^(\+?886\-?|0)?9\d{8}$/
+   };
+
+   /*eslint no-useless-escape: "off"*/
+   let val = Object.values(telReg).some((item)=>{
+     return item.test(srt)
+   })
+   return  val
+  }
+
+

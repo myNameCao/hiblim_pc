@@ -147,6 +147,9 @@
 .error_module{
   border-color: red;
 }
+.error_font{
+ color: red;
+}
 .module .title{
   height: 40px;
   line-height: 40px;

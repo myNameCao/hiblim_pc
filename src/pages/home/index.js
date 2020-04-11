@@ -3,10 +3,10 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-10 12:34:20
+ * @LastEditTime: 2020-04-11 13:13:39
  */
 import React, {useState} from 'react'
-// import {ajax} from '../../utils/ajax'
+import {ajax, checkoutTel} from '../../utils/ajax'
 
 
 import './index.css'
@@ -64,19 +64,7 @@ const addressList = [
  function Home (){
 
 
-  // ajax({
-  //   type:'post',
-  //   url:'checkName',
-  //   data:{
-  //     phone:1,
-  //     company_en:1,
-  //     company_cn:1
-  //   },
-  //   success (res){
-
-  //   }
-  // })
-  const [current, setcurrent] = useState(2);
+  const [current, setcurrent] = useState(1);
   const [errorCurrent, seterrorCurrent] = useState('')//  显示错误的地方
   
   //page1
@@ -107,7 +95,7 @@ const addressList = [
       }
     })
   }
- 
+
  //page3
   const [ stocklist, setstocklist] = useState([
     {
@@ -162,6 +150,57 @@ function delStock (obj){
     })
   })
 
+}
+function sendAjax (){
+  let list = []
+  stocklist.map(item=>{
+    return list.push({
+      stockholder_type: item.stockholder,
+      stockholder_role:item.roles.join(),
+      stockholder_hold_num:item.numShares,
+      stockholder_name: item.shareName,
+      stockholder_id: item.shareNumber,
+      stockholder_country: item.shareNationality,
+      stockholder_email: item.shareEmail,
+      stockholder_phone: item.shareTel,
+      stockholder_address_type: item.shareNumber, //todo
+      stockholder_address: item.shareAddress
+    })
+  })
+
+  ajax({
+    url:'signUp',
+    loading:true,
+    data:{
+      //page1
+      company_name_1:nameEn,
+      company_name_2:nameCn,
+      company_name_3:nameCn1,
+      business_type:nature,
+      business_detail:desNature,
+      business_address:country,
+      //page2
+      stock_type:shares,
+      stock_detail:sharesDes,
+      stock_number:sharesNum,
+      stock_price:oneValue_shares,
+      fund_source_type:fundsForm.join(),
+      fund_source_type_detail:fundsDes, //todo 
+      fund_source_country:fundsCountry,
+      // page3
+      stockholder:list,
+
+      // page4
+      service_address:address,
+      service_address_detail:addressDes, // todo 
+      service_choise:"biz_sign_250,com_register_1720,com_admin_2500,register_999"
+    },
+    success (res){
+      if(res.code === 200){
+       
+      }   
+    }
+  })
 }
  function checkout (page){
    if(page === 1){
@@ -219,6 +258,75 @@ function delStock (obj){
     }
     setcurrent(3)
    }
+   if(page === 3){
+      const {stockholder, roles, numShares, shareName, shareNumber, shareNationality, shareEmail, shareTel, shareAddress} = stocklist[0]
+      if(!stockholder){
+        seterrorCurrent('stockholder')
+
+
+        return
+      }
+      if(!roles.length){
+        seterrorCurrent('roles')
+        return
+      }
+      if(!numShares){
+        seterrorCurrent('numShares')
+
+        return
+      }
+      if(!shareName){
+        seterrorCurrent('shareName')
+
+        return
+      }
+      if(!shareNumber){
+        seterrorCurrent('shareNumber')
+
+        return
+      }
+      if(!shareNationality){
+        seterrorCurrent('shareNationality')
+
+        return
+      }
+      if(!shareEmail){
+        seterrorCurrent('shareEmail')
+
+        return
+      }
+      if(!shareEmail.includes("@")){
+        seterrorCurrent('shareEmail')
+
+        return
+      }
+      if(!shareTel){
+        seterrorCurrent('shareTel')
+
+        return
+      }
+      if(!checkoutTel(shareTel)){
+        return
+      }
+      if(!shareAddress){
+        seterrorCurrent('shareAddress')
+        return
+      }
+      setcurrent(4)
+    }
+    if(page === 4){
+      if(!address){
+        seterrorCurrent('address')
+       setTimeout(()=>seterrorCurrent(''), 500)
+        return
+      }
+      if(address === 'private_address_free' && !addressDes){
+        seterrorCurrent('private_address_free')
+
+        return
+      }
+      sendAjax()  
+    }//  提交
  }
 
   //page4
@@ -316,7 +424,7 @@ function delStock (obj){
          {current === 3  && <div  className='page3'>
           {stocklist.map((item, index)=>{
             return (
-              <div className='module' key={index}>
+              <div className='module'  key={index}>
                 <h3 className='title'>
                   {item.title}
                   {index !== 0 &&   <span  onClick={()=>{delStock(item)}}  className='icon-trash-can'></span> }
@@ -324,7 +432,7 @@ function delStock (obj){
                  </h3>
                 {stockholderType.map((itemRadio, stockInxex)=>{
                     return (
-                      <div  key={stockInxex} className='radio'   onClick={()=>stockholdeChange(item, 'stockholder', itemRadio.value)} >
+                      <div  key={stockInxex} className={errorCurrent === 'stockholder' ? 'radio error_font' : 'radio'}   onClick={()=>stockholdeChange(item, 'stockholder', itemRadio.value)} >
                         <span   className='radioTitle' >{itemRadio.label}</span>
                         <span  className={item.stockholder === itemRadio.value  ? 'icon-radio-checked fontIcon' : 'icon-radio-unchecked fontIcon'}></span>
                       </div>
@@ -333,40 +441,40 @@ function delStock (obj){
                 <h3 className='title'>角色</h3>
                 {rolesType.map(itemCheckBox=>{
                       return (
-                        <div  key={itemCheckBox.label} className='checkBox'    onClick={()=>{roleChange(item, itemCheckBox.value)}}>
+                        <div      key={itemCheckBox.label}   className={errorCurrent === 'roles' ? 'checkBox error_font' : 'checkBox'} onClick={()=>{roleChange(item, itemCheckBox.value)}}>
                           <span   className='radioTitle' >{itemCheckBox.label}</span>
                           <span  className={item.roles.includes(itemCheckBox.value) ? 'icon-check_box fontIcon' : 'icon-check_box_outline_blank fontIcon'}></span>
                         </div>
                       )
                 })}
                 <div  className='listInputItem'>
-                  <div className='inputItem'>
+                  <div className={errorCurrent === 'numShares' ? 'inputItem error_b' : 'inputItem'} >
                     <p>普通股数量</p>
-                    <input   value={item.numShares} onChange={e=>stockholdeChange(item, 'numShares', e.target.value) }/>
+                    <input    onFocus={e=>seterrorCurrent('')}  value={item.numShares} onChange={e=>stockholdeChange(item, 'numShares', e.target.value) }/>
                   </div>
-                  <div className='inputItem'>
+                  <div   className={errorCurrent === 'shareName' ? 'inputItem error_b' : 'inputItem'} >
                     <p>名字：中文/英文</p>
-                    <input   value={item.shareName} onChange={e=>stockholdeChange(item, 'shareName', e.target.value) }/>
+                    <input   onFocus={e=>seterrorCurrent('')}  value={item.shareName} onChange={e=>stockholdeChange(item, 'shareName', e.target.value) }/>
                   </div>
-                  <div className='inputItem'>
+                  <div className={errorCurrent === 'shareNumber' ? 'inputItem error_b' : 'inputItem'} >
                     <p>护照号/香港身份证号</p>
-                    <input   value={item.shareNumber} onChange={e=>stockholdeChange(item, 'shareNumber', e.target.value) }/>
+                    <input   onFocus={e=>seterrorCurrent('')}  value={item.shareNumber} onChange={e=>stockholdeChange(item, 'shareNumber', e.target.value) }/>
                   </div>
-                  <div className='inputItem'>
+                  <div  className={errorCurrent === 'shareNationality' ? 'inputItem error_b' : 'inputItem'} >
                     <p>国籍</p>
-                    <input   value={item.shareNationality} onChange={e=>stockholdeChange(item, 'shareNationality', e.target.value) }/>
+                    <input    onFocus={e=>seterrorCurrent('')}  value={item.shareNationality} onChange={e=>stockholdeChange(item, 'shareNationality', e.target.value) }/>
                   </div>
-                  <div className='inputItem'>
+                  <div  className={errorCurrent === 'shareEmail' ? 'inputItem error_b' : 'inputItem'} >
                     <p>邮箱</p>
-                    <input   value={item.shareEmail} onChange={e=>stockholdeChange(item, 'shareEmail', e.target.value) }/>
+                    <input    onFocus={e=>seterrorCurrent('')}  value={item.shareEmail} onChange={e=>stockholdeChange(item, 'shareEmail', e.target.value) }/>
                   </div>
-                  <div className='inputItem'>
+                  <div className={errorCurrent === 'shareTel' ? 'inputItem error_b' : 'inputItem'} >
                     <p>电话</p>
-                    <input   value={item.shareTel} onChange={e=>stockholdeChange(item, 'shareTel', e.target.value) }/>
+                    <input     onFocus={e=>seterrorCurrent('')} value={item.shareTel} onChange={e=>stockholdeChange(item, 'shareTel', e.target.value) }/>
                   </div>
-                  <div className='inputItem'>
+                  <div  className={errorCurrent === 'shareAddress' ? 'inputItem error_b' : 'inputItem'} >
                     <p>地址（必须是此人当前的实际地址）</p>
-                    <input   value={item.shareAddress} onChange={e=>stockholdeChange(item, 'shareAddress', e.target.value) }/>
+                    <input     onFocus={e=>seterrorCurrent('')} value={item.shareAddress} onChange={e=>stockholdeChange(item, 'shareAddress', e.target.value) }/>
                   </div>
 
                 </div>
@@ -379,12 +487,12 @@ function delStock (obj){
           </div>
           <div  className='action_line'>  
              <button  className='btn fl'  onClick={()=>{setcurrent((index)=>index - 1)}}>上一步</button> 
-             <button  className='btn fr'  onClick={()=>{setcurrent((index)=>index + 1)}}>下一步</button>
+             <button  className='btn fr'  onClick={()=>{ checkout(3)}} >下一步</button>
           </div>
          </div>}
          
          {current === 4  && <div  className='page4'>
-          <div className='module'>
+          <div  className={errorCurrent === 'address' ? 'module error_module' : 'module'} >
              <h3 className='title'>地址服务</h3>
              {addressList.map((type, index)=>{
                return (
@@ -395,9 +503,9 @@ function delStock (obj){
                )
              })}
           </div>
-          {address === 'private_address_free' && <div className='inputItem'>
+          {address === 'private_address_free' && <div className={errorCurrent === 'private_address_free' ? 'inputItem error_b' : 'inputItem'} >
             <p>请输入您的注册地址</p>
-            <input     value={addressDes} onChange={e=>setAddressDes(e.target.value)}  />
+            <input     onFocus={e=>seterrorCurrent('')}   value={addressDes} onChange={e=>setAddressDes(e.target.value)}  />
           </div>}
           <div className='module'>
              <h3 className='title'>必选服务</h3>
@@ -410,7 +518,7 @@ function delStock (obj){
                )
              })}
           </div>
-          <div  className='action_line'>    <button  className='btn fl'  onClick={()=>{setcurrent((index)=>index - 1)}}>上一步</button>  <button  className='btn fr'  onClick={()=>{setcurrent((index)=>index + 1)}}>提交</button> </div>
+          <div  className='action_line'>    <button  className='btn fl'  onClick={()=>{setcurrent((index)=>index - 1)}}>上一步</button>  <button  className='btn fr'  onClick={()=>{checkout(4)}} >提交</button> </div>
          </div>}
        </div>
      </div>
