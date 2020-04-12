@@ -1,0 +1,39 @@
+.inputItem{
+    position: relative;
+    margin: 20px 0;
+    margin-bottom: 40px;
+    height: 35px;
+    border-bottom: 1px #0000006b solid;
+    box-sizing: border-box;
+}
+
+  .error{
+    border-color:  #ff2122 !important;
+  }
+  .error  p{
+    color: #ff2122;
+  }
+  .focus{
+    border-color:  #00c2e0 !important;
+  }
+
+  .focus  p{
+    color: #00c2e0;
+  }
+
+
+  .inputItem  p{
+    position: absolute;
+    height: 20px;
+    line-height: 20px;
+    top: -20px;
+    font-size: 13px;
+  }
+  .inputItem  input{
+    font-size: 14px;
+    height: 100%;
+    width:90%;
+    color: #000000de;
+    border: none;
+    outline: none;
+  }
