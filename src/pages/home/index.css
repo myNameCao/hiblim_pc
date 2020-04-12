@@ -190,7 +190,32 @@
  font-size: 20px;
  margin-top: 10px;
  color: #de2647;
+ width: 100px;
+ height: 80px;
+ line-height: 80px;
 
+}
+.page5{
+  text-align: center;
+}
+.page5  .successImage{
+width: 100px;
+height: 100px;
+}
+.page5  .sucesstit{
+  font-size: 16px;
+  margin: 50px 0;
+}
+.page5  .goback{
+  margin: 0 auto;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  font-size: 20px;
+  color: white;
+  background: #00c2e0;
+  font-weight: 600;
 }
 
 

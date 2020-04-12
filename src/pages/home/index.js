@@ -3,10 +3,12 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-11 13:13:39
+ * @LastEditTime: 2020-04-12 15:13:53
  */
 import React, {useState} from 'react'
 import {ajax, checkoutTel} from '../../utils/ajax'
+
+import successImage from './success.png'
 
 
 import './index.css'
@@ -197,7 +199,7 @@ function sendAjax (){
     },
     success (res){
       if(res.code === 200){
-       
+        setcurrent(5)
       }   
     }
   })
@@ -517,10 +519,20 @@ function sendAjax (){
                  </div>
                )
              })}
+
+             
           </div>
           <div  className='action_line'>    <button  className='btn fl'  onClick={()=>{setcurrent((index)=>index - 1)}}>上一步</button>  <button  className='btn fr'  onClick={()=>{checkout(4)}} >提交</button> </div>
          </div>}
+
+         {current === 5 && <div  className='page5'>
+            <div> <img  alt='' className='successImage' src={successImage} /></div>
+            <div   className='sucesstit'>提交成功，稍后回有人与您联系</div>
+            <div className='goback'>返回</div>
+           </div>}
        </div>
+
+
      </div>
    )
  }
