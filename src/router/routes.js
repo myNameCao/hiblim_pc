@@ -9,6 +9,7 @@ const home = asyncComponent(() => import('../pages/home'));
 const login = asyncComponent(() => import("../pages/login"));
 const onboarding = asyncComponent(() => import("../pages/onboarding"));
 const mailroom = asyncComponent(() => import("../pages/mailroom"));
+const join = asyncComponent(() => import("../pages/join"));
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: '/login',
     component: login,
+  },
+  {
+    path: '/join',
+    component: join,
   },
   {
     path: '/onboarding',

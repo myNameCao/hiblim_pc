@@ -14,7 +14,7 @@ function Index ({routes}){
   <div className='login'>
       <div  className='mid_module'>
           <div className='logo'></div>
-          <div  className='creatUser'>New to Haibilin?  Create an account.</div>
+          <div  className='creatUser'>New to Haibilin? <span className='creatbtn'>  Create an account. </span></div>
           <div className='des_welcome'>Welcome to Haibilin</div>
           <div className='content'>
              <Input  { ... {title:'请输入邮箱'}} />

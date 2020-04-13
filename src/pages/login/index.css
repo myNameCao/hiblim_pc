@@ -34,3 +34,8 @@
     bottom: -60px;
     left: 0;
 }
+.creatbtn{
+    cursor: pointer;
+    font-size: 14px;
+    color: #00c2e0;
+}
