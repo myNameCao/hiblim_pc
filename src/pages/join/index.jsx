@@ -21,7 +21,7 @@ function Join ({history}){
   }
     return ( 
   <div className='join'>
-    <div  className='mid_module'>
+    <div  className='mid_module_register'>
          <div className='w100'>
             <div className='w50'> <Input  {...{title:'First Name'}}  value={firstName} onChange={val=>{setFirstName(val)}} /> </div>
             <div className='w50 mRight'> <Input  {...{title:'Last Name'}}  value={lastname} onChange={val=>{setLastname(val)}} /> </div>
