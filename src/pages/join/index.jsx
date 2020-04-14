@@ -9,7 +9,7 @@
 import React, {useState} from 'react';
 import Input from '../../components/input'
 import './index.css'
-function Join ({routes}){
+function Join ({history}){
   const [firstName, setFirstName]  =  useState('') 
   const [lastname, setLastname]  =  useState('')
   const [email, setEmail]  =  useState('')

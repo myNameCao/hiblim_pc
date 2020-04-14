@@ -12,7 +12,7 @@ import { Redirect  } from 'react-router-dom'
 
 import './index.css'
 function Index (props){
-  let sigin = 1
+  let sigin = 0
   return sigin ? <Redirect to={{ pathname: "/onboarding/home"}} /> : <Redirect  to={{pathname: "/login"}} />
   
 }
