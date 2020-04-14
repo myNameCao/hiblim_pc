@@ -6,8 +6,7 @@ import './index.less'
    
    return (
      <div className='mailroom' >
-       <div  className='title'>title</div>
-       <div  className='msg'>msg</div>
+         mailroom
      </div>
    )
  }
