@@ -4,14 +4,14 @@ import RouteView from './router';
 import routes from './router/routes';
 import './App.css';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
 } from "react-router-dom"
 
 function App () {
   return (
     <div className="App">
          <Router>
-           <RouteView  routes={routes}/>
+           <RouteView routes={routes}/>
          </Router>
     </div>
   );
