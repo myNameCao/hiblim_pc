@@ -1,10 +1,13 @@
 import React from 'react';
-import './index.css'
+import './index.less'
 
 
  function mailroom (){
+   
    return (
-     <div className='mailroom' >mailroom</div>
+     <div className='mailroom' >
+         mailroom
+     </div>
    )
  }
 
