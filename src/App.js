@@ -7,6 +7,11 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom"
 
+
+import chatbot from './lib/intercom'
+
+chatbot()
+
 function App () {
   return (
     <div className="App">

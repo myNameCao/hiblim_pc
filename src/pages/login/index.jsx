@@ -35,7 +35,7 @@ function Index ({routes, history}){
           </div>
 
       </div>
-   <div class="copyright"><a href="http://www.beian.miit.gov.cn/">苏ICP备20013765号-1 </a> | 版权 © 2020 Nanjing Yunfengsu Technology Co., Ltd. | 电话: 4006-922-006 </div>
+   <div className="copyright"><a href="http://www.beian.miit.gov.cn/">苏ICP备20013765号-1 </a> | 版权 © 2020 Nanjing Yunfengsu Technology Co., Ltd. | 电话: 4006-922-006 </div>
   </div>
   )
   }
