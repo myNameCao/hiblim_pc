@@ -17,6 +17,20 @@ function Contact ({routes, history}){
  
     return (<div className='contact'>
       <Menu></Menu>
+      <div className='banner'>
+        <h1>Would Like to Learn More About Our Services?</h1>
+        <p> We’re glad to assist and will get back to you in the same day, normally within 15 minutes!</p>
+      </div>
+      <div className='myself'>
+        <div className='leftView'></div>
+        <div className='rightView'>
+          <h2>Hong Kong Office</h2>
+          <p>Room 1405, 14/F, 135 Bonham, Strand Trade Centre,</p>
+          <p> 135 Bonham Strand, Sheung Wan, Hong Kong</p>
+          <p>Email: info@hiblim.com</p>
+          <p>Phone: +852 3008 8221</p>
+        </div>
+      </div>
   </div>)
   }
   export default Contact

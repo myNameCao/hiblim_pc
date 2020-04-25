@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-23 15:53:32
+ * @LastEditTime: 2020-04-25 14:54:34
  */
 
 import React from 'react';
@@ -20,18 +20,6 @@ function Head () {
             <a href="index.html"><img src={logo} /></a>
             </h1>
           <ul>
-            <li>
-              <a href="incorporation.html">COMPANY REGISTRATION</a>
-              </li>
-            <li>
-              <a href="secretary.html">COMPANY SECRETARY</a>
-            </li>
-            <li>
-              <a href="accounting.html">ACCOUNTING & AUDITING</a>
-            </li>
-            <li>
-              <a href="http://www.hiblim.com/contactUs">CONTACT US</a>
-            </li>
             <li>
               <a href="http://www.hiblim.com">LOG IN</a>
             </li>

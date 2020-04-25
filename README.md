@@ -31,4 +31,9 @@ Your app is ready to be deployed
 
 ## 服务器地址
 
-scp -r 本地文件 root@39.100.125.169:/data/html/haibilin/
+scp -r * root@39.100.125.169:/data/html/haibilin/
+
+
+
+
+
