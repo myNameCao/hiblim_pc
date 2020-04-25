@@ -14,7 +14,6 @@ function Contact ({routes, history}){
   const [email, setEmail]  =  useState('')
   const [password, setPassword]  =  useState('')
 
- 
     return (<div className='contact'>
       <Menu></Menu>
       <div className='banner'>
