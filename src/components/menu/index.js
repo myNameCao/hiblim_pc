@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-25 14:54:34
+ * @LastEditTime: 2020-04-25 17:20:14
  */
 
 import React from 'react';
@@ -12,7 +12,6 @@ import './index.less'
 import logo from './logo.png'
 
 function Head () {
-
   return (
     <div className="head">
        <div className="menubox">
