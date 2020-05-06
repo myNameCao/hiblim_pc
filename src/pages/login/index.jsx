@@ -29,7 +29,6 @@ async function login (){
         }
        }
     )
-
 }
     return ( 
   <div className='login'>
