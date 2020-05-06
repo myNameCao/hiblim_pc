@@ -8,6 +8,7 @@
 
 import React, {useState} from 'react';
 import Input from '../../components/input'
+import {ajax} from '../../utils/ajax'
 import './index.css'
 function Join ({history}){
   const [firstName, setFirstName]  =  useState('') 
@@ -15,9 +16,16 @@ function Join ({history}){
   const [email, setEmail]  =  useState('')
   const [password, setPassword]  =  useState('')
   const [comfirm, setComfirm]  =  useState('')
-  
   function Register (){
-    console.log({firstName, lastname, email, password, comfirm})
+    ajax({
+      url:'regist',
+      data:{
+        firstName,
+        lastname,
+        email,
+        password
+      }
+    })
   }
     return ( 
   <div className='join'>
@@ -34,8 +42,6 @@ function Join ({history}){
         <div  className='actionLine'>
            <div className='btn_register'  onClick={Register} >Register</div>
         </div>
-         
-
       </div>
   </div>
   )

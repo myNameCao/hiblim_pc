@@ -8,16 +8,28 @@
 
 import React, {useState}from 'react';
 import Input from '../../components/input'
+
+import {ajax}  from '../../utils/ajax'
 import './index.less'
 function Index ({routes, history}){
+
   const [email, setEmail]  =  useState('')
   const [password, setPassword]  =  useState('')
 
- function goResgister (){
+function goResgister (){
     history.push('/join')
 }
- function login (){
-    history.push('/onboarding/home')
+async function login (){
+  await ajax(
+        {
+        url:'login',
+        data:{accountID:email, password:password},
+        success (){
+          history.push('/onboarding/home')
+        }
+       }
+    )
+
 }
     return ( 
   <div className='login'>

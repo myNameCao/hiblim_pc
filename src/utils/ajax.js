@@ -24,6 +24,8 @@ export const  ajax = (P) => {
   ).then((res) => {
     // 状态码的处理
     P.success && P.success(res.data)
+    return res.data 
+
   }).catch(function (err) {
     P.error && P.error(err)
   })
