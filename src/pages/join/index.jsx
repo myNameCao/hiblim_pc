@@ -8,12 +8,13 @@
 
 import React, {useState} from 'react';
 import Input from '../../components/input'
+import Dialog from '../../components/dialog'
+
 import {ajax} from '../../utils/ajax'
 import './index.css'
 function Join ({history}){
   const [firstName, setFirstName]  =  useState('') 
   const [lastname, setLastname]  =  useState('')
-
   const [email, setEmail]  =  useState('')
   const  [tipmessage, setmessage] =  useState('')
 
@@ -55,6 +56,7 @@ function Join ({history}){
            <div className={(!firstName || !lastname || !email || !password || !comfirm) ? 'btn_register btn_register_not' : 'btn_register'}  onClick={Register} >Register</div>
         </div>
       </div>
+      <Dialog></Dialog>
   </div>
   )
   }

@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-14 11:56:47
+ * @LastEditTime: 2020-05-07 21:07:51
  */
 
 import React from 'react';
@@ -27,12 +27,12 @@ function Main ({routes}) {
             Home
             </Link>
         </li>
-        <li className={pathname === '/onboarding/mailroom' ? 'item_tag  active_tag' : 'item_tag'}>
+        {/* <li className={pathname === '/onboarding/mailroom' ? 'item_tag  active_tag' : 'item_tag'}>
           <Link to="/onboarding/mailroom">
           <span  className='icon-mail-envelope-open  iconFont'></span>
             Mailroom
             </Link>
-        </li>
+        </li> */}
       </ul>
       <div  className='item_content'>
             <RouteView  routes={routes}/>
