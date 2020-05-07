@@ -33,6 +33,10 @@
 .actionLine{
     height: 60px;
 }
+.tip_error{
+  font-size: 14px;
+  color: red;
+}
 .btn_register{
     float: right;
     height: 40px;
@@ -43,4 +47,10 @@
     width: 80px;
     border-radius: 6px;
     background: #00c2e0;
+}
+
+.btn_register_not{
+  background: #d4ecee;
+
+
 }
