@@ -53,7 +53,6 @@ async function login (){
                  <div  className={(!email || !password) ? 'btn_login  btn_login_not' : 'btn_login'} onClick={login} >login</div>
              </div>
           </div>
-
       </div>
    <div className="copyright"><a href="http://www.beian.miit.gov.cn/">苏ICP备20013765号-1 </a> | 版权 © 2020 南京云风速科技有限公司 | 电话: 4006-922-006 </div>
 
