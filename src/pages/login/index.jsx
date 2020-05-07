@@ -24,7 +24,7 @@ async function login (){
         {
         url:'login',
         data:{accountID:email, password:password},
-        success (){
+        success (res){
           history.push('/onboarding/home')
         }
        }

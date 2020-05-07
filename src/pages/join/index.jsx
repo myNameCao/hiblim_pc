@@ -13,10 +13,18 @@ import './index.css'
 function Join ({history}){
   const [firstName, setFirstName]  =  useState('') 
   const [lastname, setLastname]  =  useState('')
+
   const [email, setEmail]  =  useState('')
+  const  [tipmessage, setmessage] =  useState('')
+
   const [password, setPassword]  =  useState('')
+
   const [comfirm, setComfirm]  =  useState('')
+
   function Register (){
+    if(!firstName || !lastname || !email || !password || !comfirm) return
+  if(!email.includes('@')){setmessage('输入正确的邮箱')}
+  if(password != comfirm){setmessage('两次输入的密码不正确')}
     ajax({
       url:'regist',
       data:{
@@ -24,6 +32,9 @@ function Join ({history}){
         lastname,
         email,
         password
+      },
+      success (res){
+        history.push('/login')
       }
     })
   }
@@ -40,7 +51,8 @@ function Join ({history}){
             <div className='w50 mRight'> <Input {...{title:'comfirm PassWord'}}    value={comfirm} onChange={val=>{setComfirm(val)}} /> </div>
         </div>
         <div  className='actionLine'>
-           <div className='btn_register'  onClick={Register} >Register</div>
+           <p className='tip_error'>{tipmessage}</p>
+           <div className={(!firstName || !lastname || !email || !password || !comfirm) ? 'btn_register btn_register_not' : 'btn_register'}  onClick={Register} >Register</div>
         </div>
       </div>
   </div>
