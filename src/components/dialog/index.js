@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-07 21:10:54
+ * @LastEditTime: 2020-05-07 22:36:58
  */
 
 import React, {useState} from 'react'
@@ -16,7 +16,7 @@ function Dialog ({close, text}) {
       <div className='contentView'>
          <h1 className='title_erroe'>ERROR</h1>
          <p>{text || '错误的写哦我安稳HIV'}</p>
-         <div className='action_line'>
+         <div className='action_line_dialog'>
            <div  onClick={e=>{close & close()}} className='know'>知道了</div>
          </div>
       </div>
