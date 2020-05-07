@@ -24,13 +24,10 @@ export const  ajax = (P) => {
   ).then((res) => {
     // 状态码的处理
     P.success && P.success(res.data)
-    return res.data 
-  }).catch((err, x)=> {
-    console.log(err, x)
-    P.error && P.error(err)
+  }).catch((error)=> {
+    P.error && P.error(error.response.data)
   })
 } //web请求: ajax封装
-
 
 export const  checkoutTel = (srt)=>{
 

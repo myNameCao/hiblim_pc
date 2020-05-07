@@ -24,17 +24,17 @@ function goResgister (){
 }
 async function login (){
   if(!email || !password) return 
+  if(!email.includes('@')) return 
   await ajax(
         {
         url:'login',
         data:{accountID:email, password:password},
         success (res){
-          console.log(res)
+          if(res.code !== 200){
+            setTip('用户名密码不正确,请重新登录')
+            return 
+          }
           history.push('/onboarding/home')
-        },
-        error (res){
-console.log(res, 1111)
-          setTip()
         }
        }
     )

@@ -18,14 +18,17 @@ function Join ({history}){
   const [email, setEmail]  =  useState('')
   const  [tipmessage, setmessage] =  useState('')
 
+  const [tip, setTip]  =  useState('')
+
+
   const [password, setPassword]  =  useState('')
 
   const [comfirm, setComfirm]  =  useState('')
 
   function Register (){
     if(!firstName || !lastname || !email || !password || !comfirm) return
-  if(!email.includes('@')){setmessage('输入正确的邮箱')}
-  if(password != comfirm){setmessage('两次输入的密码不正确')}
+  if(!email.includes('@')){setmessage('输入正确的邮箱'); return }
+  if(password != comfirm){setmessage('两次输入的密码不正确'); return }
     ajax({
       url:'regist',
       data:{
@@ -36,6 +39,10 @@ function Join ({history}){
       },
       success (res){
         history.push('/login')
+      },
+      error (e){
+        console.log(e)
+        setTip(e.message)
       }
     })
   }
@@ -56,7 +63,7 @@ function Join ({history}){
            <div className={(!firstName || !lastname || !email || !password || !comfirm) ? 'btn_register btn_register_not' : 'btn_register'}  onClick={Register} >Register</div>
         </div>
       </div>
-      <Dialog></Dialog>
+      {tip && <Dialog close={e=>{setTip('')}} text={tip} ></Dialog>}
   </div>
   )
   }
