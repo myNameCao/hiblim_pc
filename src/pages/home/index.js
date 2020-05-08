@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-07 23:03:31
+ * @LastEditTime: 2020-05-07 23:08:22
  */
 import React, {useState} from 'react'
 import {ajax, checkoutTel} from '../../utils/ajax'
@@ -66,7 +66,7 @@ const addressList = [
  function Home (){
 
 
-  const [current, setcurrent] = useState(3);
+  const [current, setcurrent] = useState(1);
   const [errorCurrent, seterrorCurrent] = useState('')//  显示错误的地方
   
   //page1
