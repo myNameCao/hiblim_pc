@@ -10,10 +10,19 @@ import React, {useState}from 'react';
 
 import Menu from '../../components/menu'
 import Footer from '../../components/footer'
+import   inc_3_light from './inc_3_light.png'
+import Input from '../../components/input'
+
+
 import './index.less'
 function Contact ({routes, history}){
+  const [firstName, setFirstName]  =  useState('') 
+  const [lastname, setLastname]  =  useState('')
   const [email, setEmail]  =  useState('')
-  const [password, setPassword]  =  useState('')
+  const [phone, setPhone]  =  useState('')
+  const  [tipmessage, setmessage] =  useState('')
+
+  const [tip, setTip]  =  useState('')
 
     return (<div className='contact'>
       <Menu></Menu>
@@ -22,14 +31,34 @@ function Contact ({routes, history}){
         <p> We’re glad to assist and will get back to you in the same day, normally within 15 minutes!</p>
       </div>
       <div className='myself'>
-        <div className='leftView'></div>
+        <div className='leftView'>
+            <img src={inc_3_light} />
+        </div>
         <div className='rightView'>
           <h2>Hong Kong Office</h2>
           <p>Room 1405, 14/F, 135 Bonham, Strand Trade Centre,</p>
           <p> 135 Bonham Strand, Sheung Wan, Hong Kong</p>
-          <p>Email: info@hiblim.com</p>
+          <p style={{marginTop:'40px'}}>Email: info@hiblim.com</p>
           <p>Phone: +852 3008 8221</p>
         </div>
+      </div>
+      <div  className='inputView'>     
+        <div className='name'>
+            <div className='firstname'>
+              <Input  {...{title:'First Name'}}  value={firstName} onChange={val=>{setFirstName(val)}} />
+            </div>
+            <div className='lastName'>
+               <Input  {...{title:'Last Name'}}  value={lastname} onChange={val=>{setLastname(val)}} /> 
+            </div>
+        </div>
+        <div className='email '>
+             <Input type='email'{...{title:'Email'}}   value={email} onChange={val=>{setEmail(val)}} />
+        </div>
+        
+        <div className='phone '>
+            <Input type='number' {...{title:'phone'}}   value={phone} onChange={val=>{setPhone(val)}} />
+        </div>
+        <div className='submit'>submit</div>
       </div>
       <Footer/>
   </div>)

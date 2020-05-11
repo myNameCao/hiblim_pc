@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-11 10:08:07
+ * @LastEditTime: 2020-05-11 11:32:06
  */
 
 import React from 'react';
@@ -47,7 +47,6 @@ function Footer () {
 				<dt>Company</dt>
 				<dd>
 					<a href="about-us.html">About Us</a>
-					<a href="contact-us.html">Contact Us</a>
 				</dd>
 			</dl>
 		</div>

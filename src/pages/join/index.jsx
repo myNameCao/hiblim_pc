@@ -20,7 +20,6 @@ function Join ({history}){
 
   const [tip, setTip]  =  useState('')
 
-
   const [password, setPassword]  =  useState('')
 
   const [comfirm, setComfirm]  =  useState('')
