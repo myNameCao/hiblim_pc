@@ -9,6 +9,7 @@
 import React, {useState}from 'react';
 
 import Menu from '../../components/menu'
+import Footer from '../../components/footer'
 import './index.less'
 function Contact ({routes, history}){
   const [email, setEmail]  =  useState('')
@@ -30,6 +31,7 @@ function Contact ({routes, history}){
           <p>Phone: +852 3008 8221</p>
         </div>
       </div>
+      <Footer/>
   </div>)
   }
   export default Contact
