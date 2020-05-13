@@ -1,9 +1,9 @@
-.inputItem{
+.textareaItem{
     position: relative;
-    margin: 20px 0;
+    margin: 30px 0;
     margin-bottom: 40px;
-    height: 35px;
-    border-bottom: 1px #0000006b solid;
+    height: 100px;
+    border: 1px #0000006b solid;
     box-sizing: border-box;
 }
 
@@ -20,17 +20,19 @@
   .focus  p{
     color: #00c2e0;
   }
-  .inputItem  p{
+  .textareaItem  p{
     position: absolute;
-    height: 20px;
-    line-height: 20px;
-    top: -20px;
+    height: 30px;
+    line-height: 30px;
+    top: -30px;
     font-size: 13px;
   }
-  .inputItem  input{
+  .textareaItem  textarea{
+    padding: 8px;
+    box-sizing: border-box;
     font-size: 14px;
     height: 100%;
-    width:90%;
+    width:100%;
     color: #000000de;
     border: none;
     outline: none;

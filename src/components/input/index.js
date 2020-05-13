@@ -3,8 +3,11 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-06 22:49:37
+ * @LastEditTime: 2020-05-11 11:18:20
  */
+
+ 
+// height 95px
 
 import React, {useState} from 'react'
 
@@ -29,7 +32,7 @@ function Input ({title, type, value, onChange, check}) {
   return (
     <div className={`inputItem ${currentState}`}>
             <p>{title}</p>
-            <input  onFocus={e=>setCurrentState('focus')}  onBlur={e=>blur(e)} type={type || 'text' } value={value}  onChange={e=>onChange && onChange(e.target.value)} />
+            <input  autoComplete='new-password' onFocus={e=>setCurrentState('focus')}  onBlur={e=>blur(e)} type={type || 'text' } value={value}  onChange={e=>onChange && onChange(e.target.value)} />
     </div>
   );
 }

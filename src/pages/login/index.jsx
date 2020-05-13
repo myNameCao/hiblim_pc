@@ -8,6 +8,8 @@
 
 import React, {useState}from 'react';
 import Input from '../../components/input'
+import Dialog from '../../components/dialog'
+
 
 import {ajax}  from '../../utils/ajax'
 import './index.less'
@@ -15,16 +17,23 @@ function Index ({routes, history}){
 
   const [email, setEmail]  =  useState('')
   const [password, setPassword]  =  useState('')
+  const [tip, setTip]  =  useState('')
 
 function goResgister (){
     history.push('/join')
 }
 async function login (){
+  if(!email || !password) return 
+  if(!email.includes('@')) return 
   await ajax(
         {
         url:'login',
         data:{accountID:email, password:password},
         success (res){
+          if(res.code !== 200){
+            setTip('用户名密码不正确,请重新登录')
+            return 
+          }
           history.push('/onboarding/home')
         }
        }
@@ -41,12 +50,13 @@ async function login (){
              <Input  type='password' value={password} onChange={val=>setPassword(val)}   { ... {title:'请输入密码'}} />
              <div> 
                  <div></div>
-                 <div  className='btn_login' onClick={login} >login</div>
+                 <div  className={(!email || !password) ? 'btn_login  btn_login_not' : 'btn_login'} onClick={login} >login</div>
              </div>
           </div>
-
       </div>
-   <div className="copyright"><a href="http://www.beian.miit.gov.cn/">苏ICP备20013765号-1 </a> | 版权 © 2020 Nanjing Yunfengsu Technology Co., Ltd. | 电话: 4006-922-006 </div>
+   <div className="copyright"><a href="http://www.beian.miit.gov.cn/">苏ICP备20013765号-1 </a> | 版权 © 2020 南京云风速科技有限公司 | 电话: 4006-922-006 </div>
+
+   {tip && <Dialog close={e=>{setTip('')}} text={tip} ></Dialog>}
   </div>
   )
   }

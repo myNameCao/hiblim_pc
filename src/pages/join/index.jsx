@@ -8,14 +8,17 @@
 
 import React, {useState} from 'react';
 import Input from '../../components/input'
+import Dialog from '../../components/dialog'
+
 import {ajax} from '../../utils/ajax'
 import './index.css'
 function Join ({history}){
   const [firstName, setFirstName]  =  useState('') 
   const [lastname, setLastname]  =  useState('')
-
   const [email, setEmail]  =  useState('')
   const  [tipmessage, setmessage] =  useState('')
+
+  const [tip, setTip]  =  useState('')
 
   const [password, setPassword]  =  useState('')
 
@@ -23,8 +26,8 @@ function Join ({history}){
 
   function Register (){
     if(!firstName || !lastname || !email || !password || !comfirm) return
-  if(!email.includes('@')){setmessage('输入正确的邮箱')}
-  if(password != comfirm){setmessage('两次输入的密码不正确')}
+  if(!email.includes('@')){setmessage('输入正确的邮箱'); return }
+  if(password != comfirm){setmessage('两次输入的密码不正确'); return }
     ajax({
       url:'regist',
       data:{
@@ -35,6 +38,10 @@ function Join ({history}){
       },
       success (res){
         history.push('/login')
+      },
+      error (e){
+        console.log(e)
+        setTip(e.message)
       }
     })
   }
@@ -55,6 +62,7 @@ function Join ({history}){
            <div className={(!firstName || !lastname || !email || !password || !comfirm) ? 'btn_register btn_register_not' : 'btn_register'}  onClick={Register} >Register</div>
         </div>
       </div>
+      {tip && <Dialog close={e=>{setTip('')}} text={tip} ></Dialog>}
   </div>
   )
   }

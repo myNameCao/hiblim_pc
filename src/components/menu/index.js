@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-27 22:13:00
+ * @LastEditTime: 2020-05-11 09:15:01
  */
 
 import React from 'react';
@@ -19,7 +19,7 @@ function Head () {
             </h1>
           <ul>
             <li>
-              <a href="http://www.hiblim.com">LOG IN</a>
+              {/* <a href="http://www.hiblim.com">LOG IN</a> */}
             </li>
           </ul>
        </div>	

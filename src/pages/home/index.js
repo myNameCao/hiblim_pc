@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-12 18:40:01
+ * @LastEditTime: 2020-05-07 23:08:22
  */
 import React, {useState} from 'react'
 import {ajax, checkoutTel} from '../../utils/ajax'
@@ -430,7 +430,6 @@ function sendAjax (){
                 <h3 className='title'>
                   {item.title}
                   {index !== 0 &&   <span  onClick={()=>{delStock(item)}}  className='icon-trash-can'></span> }
-                
                  </h3>
                 {stockholderType.map((itemRadio, stockInxex)=>{
                     return (
@@ -527,8 +526,8 @@ function sendAjax (){
 
          {current === 5 && <div  className='page5'>
             <div> <img  alt='' className='successImage' src={successImage} /></div>
-            <div   className='sucesstit'>提交成功，稍后回有人与您联系</div>
-            <div className='goback'>返回</div>
+            <div  className='sucesstit'>提交成功，稍后回有人与您联系</div>
+            <div     onClick={()=>{window.location.reload()}}  className='goback'>返回</div>
            </div>}
        </div>
 
