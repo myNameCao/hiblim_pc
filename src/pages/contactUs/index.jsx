@@ -52,10 +52,11 @@ function Contact ({routes, history}){
           <div className='meaaage'>
               <Textarea  {...{title:'Message'}}   value={message} onChange={val=>{setMessage(val)}} />
           </div>
-          <div className='submit'>submit</div>
+          <div className='submit'>Submit</div>
         </div>
         <div className='rightView'>
           <h2>Hong Kong Office</h2>
+          <p  className='tip_text'> Leave us a message and we'll get back to you right away...</p>
           <p>Room 1405, 14/F, 135 Bonham, Strand Trade Centre,</p>
           <p> 135 Bonham Strand, Sheung Wan, Hong Kong</p>
           <p style={{marginTop:'40px'}}>Email: info@hiblim.com</p>
