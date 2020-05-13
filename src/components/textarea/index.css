@@ -1,0 +1,39 @@
+.textareaItem{
+    position: relative;
+    margin: 30px 0;
+    margin-bottom: 40px;
+    height: 100px;
+    border: 1px #0000006b solid;
+    box-sizing: border-box;
+}
+
+  .error{
+    border-color:  #ff2122 !important;
+  }
+  .error  p{
+    color: #ff2122;
+  }
+  .focus{
+    border-color:  #00c2e0 !important;
+  }
+
+  .focus  p{
+    color: #00c2e0;
+  }
+  .textareaItem  p{
+    position: absolute;
+    height: 30px;
+    line-height: 30px;
+    top: -30px;
+    font-size: 13px;
+  }
+  .textareaItem  textarea{
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    height: 100%;
+    width:100%;
+    color: #000000de;
+    border: none;
+    outline: none;
+  }
