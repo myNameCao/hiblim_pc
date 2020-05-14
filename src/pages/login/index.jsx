@@ -55,7 +55,6 @@ async function login (){
           </div>
       </div>
    <div className="copyright"><a href="http://www.beian.miit.gov.cn/">苏ICP备20013765号-1 </a> | 版权 © 2020 南京云风速科技有限公司 | 电话: 4006-922-006 </div>
-
    {tip && <Dialog close={e=>{setTip('')}} text={tip} ></Dialog>}
   </div>
   )

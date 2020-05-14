@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-11 11:32:06
+ * @LastEditTime: 2020-05-14 10:16:49
  */
 
 import React from 'react';
@@ -38,15 +38,15 @@ function Footer () {
 			<dl>
 				<dt>Services</dt>
 				<dd>
-					<a href="incorporation.html">Company Incorporation</a>
-					<a href="secretary.html">Company Secretary</a>
-					<a href="accounting.html">Accounting & Auditing</a>
+					<a href="http://hk.hiblim.com/incorporation.html">Company Incorporation</a>
+					<a href="http://hk.hiblim.com/secretary.html">Company Secretary</a>
+					<a href="http://hk.hiblim.com/accounting.html">Accounting & Auditing</a>
 				</dd>
 			</dl>
 			<dl>
 				<dt>Company</dt>
 				<dd>
-					<a href="about-us.html">About Us</a>
+					<a href="http://hk.hiblim.com/about-us.html">About Us</a>
 				</dd>
 			</dl>
 		</div>
