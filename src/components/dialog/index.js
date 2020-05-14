@@ -10,11 +10,11 @@ import React, {useState} from 'react'
 
 import './index.less'
 
-function Dialog ({close, text}) {
+function Dialog ({close, text, title}) {
   return (
     <div className='shadow'>
       <div className='contentView'>
-         <h1 className='title_erroe'>ERROR</h1>
+         <h1 className='title_erroe'>{title || 'ERROR'}</h1>
          <p>{text || '错误显示'}</p>
          <div className='action_line_dialog'>
            <div  onClick={e=>{close & close()}} className='know'>知道了</div>

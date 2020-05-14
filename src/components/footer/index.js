@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-14 10:16:49
+ * @LastEditTime: 2020-05-14 10:58:48
  */
 
 import React from 'react';
@@ -46,7 +46,6 @@ function Footer () {
 			<dl>
 				<dt>Company</dt>
 				<dd>
-					<a href="http://hk.hiblim.com/about-us.html">About Us</a>
 				</dd>
 			</dl>
 		</div>

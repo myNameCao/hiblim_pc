@@ -12,6 +12,7 @@ import Menu from '../../components/menu'
 import Footer from '../../components/footer'
 import Input from '../../components/input'
 import Textarea from '../../components/textarea'
+import Dialog from '../../components/dialog'
 
 import {ajax} from '../../utils/ajax'
 
@@ -27,6 +28,8 @@ function Contact ({routes, history}){
 
   function submit (){
     if(!firstName || !lastname || !message || !phone || !email)
+    console.log(firstName, lastname, message, phone, email)
+
     ajax({
       url:'reserve',
       data:{
@@ -37,7 +40,8 @@ function Contact ({routes, history}){
         email,
       },
       success (res){
-       
+        setTip('提交成功 ！')
+        
       },
       error (e){
         setTip(e.message)
@@ -70,7 +74,7 @@ function Contact ({routes, history}){
           <div className='meaaage'>
               <Textarea  {...{title:'Message'}}   value={message} onChange={val=>{setMessage(val)}} />
           </div>
-          <div className='submit' onClick={submit}>Submit</div>
+          <div className={(!firstName || !lastname || !message || !phone || !email) ? 'submit not_submit' : 'submit'} onClick={submit}>Submit</div>
         </div>
         <div className='rightView'>
           <h2>Hong Kong Office</h2>
@@ -82,6 +86,8 @@ function Contact ({routes, history}){
         </div>
       </div>
       <Footer/>
+   {tip && <Dialog close={e=>{setTip(''); window.location.reload()}} text={tip}  title='SUCCESS'></Dialog>}
+
   </div>)
   }
   export default Contact

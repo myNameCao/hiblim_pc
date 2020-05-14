@@ -30,7 +30,7 @@ async function login (){
         url:'login',
         data:{accountID:email, password:password},
         success (res){
-          if(res.code !== 200){
+          if(res.data.code !== 200){
             setTip('用户名密码不正确,请重新登录')
             return 
           }
