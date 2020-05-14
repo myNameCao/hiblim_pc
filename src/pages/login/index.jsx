@@ -30,7 +30,7 @@ async function login (){
         url:'login',
         data:{accountID:email, password:password},
         success (res){
-          if(res.code !== 200){
+          if(res.data.code !== 200){
             setTip('用户名密码不正确,请重新登录')
             return 
           }
@@ -55,7 +55,6 @@ async function login (){
           </div>
       </div>
    <div className="copyright"><a href="http://www.beian.miit.gov.cn/">苏ICP备20013765号-1 </a> | 版权 © 2020 南京云风速科技有限公司 | 电话: 4006-922-006 </div>
-
    {tip && <Dialog close={e=>{setTip('')}} text={tip} ></Dialog>}
   </div>
   )

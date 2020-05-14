@@ -10,9 +10,11 @@ import React, {useState}from 'react';
 
 import Menu from '../../components/menu'
 import Footer from '../../components/footer'
-import   inc_3_light from './inc_3_light.png'
 import Input from '../../components/input'
 import Textarea from '../../components/textarea'
+import Dialog from '../../components/dialog'
+
+import {ajax} from '../../utils/ajax'
 
 
 import './index.less'
@@ -22,10 +24,30 @@ function Contact ({routes, history}){
   const [email, setEmail]  =  useState('')
   const [phone, setPhone]  =  useState('')
   const [message, setMessage]  =  useState('')
-  const  [tipmessage, setmessage] =  useState('')
-
   const [tip, setTip]  =  useState('')
 
+  function submit (){
+    if(!firstName || !lastname || !message || !phone || !email)
+    console.log(firstName, lastname, message, phone, email)
+
+    ajax({
+      url:'reserve',
+      data:{
+        firstName,
+        lastname,
+        message,
+        phone,
+        email,
+      },
+      success (res){
+        setTip('提交成功 ！')
+        
+      },
+      error (e){
+        setTip(e.message)
+      }
+    })
+  }
     return (<div className='contact'>
       <Menu></Menu>
       <div className='banner'>
@@ -52,18 +74,20 @@ function Contact ({routes, history}){
           <div className='meaaage'>
               <Textarea  {...{title:'Message'}}   value={message} onChange={val=>{setMessage(val)}} />
           </div>
-          <div className='submit'>Submit</div>
+          <div className={(!firstName || !lastname || !message || !phone || !email) ? 'submit not_submit' : 'submit'} onClick={submit}>Submit</div>
         </div>
         <div className='rightView'>
           <h2>Hong Kong Office</h2>
-          <p  className='tip_text'> Leave us a message and we'll get back to you right away...</p>
           <p>Room 1405, 14/F, 135 Bonham, Strand Trade Centre,</p>
           <p> 135 Bonham Strand, Sheung Wan, Hong Kong</p>
           <p style={{marginTop:'40px'}}>Email: info@hiblim.com</p>
           <p>Phone: +852 5701 1656</p>
+          <p  className='tip_text'> Leave us a message and we'll get back to you right away...</p>
         </div>
       </div>
       <Footer/>
+   {tip && <Dialog close={e=>{setTip(''); window.location.reload()}} text={tip}  title='SUCCESS'></Dialog>}
+
   </div>)
   }
   export default Contact

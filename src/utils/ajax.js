@@ -25,6 +25,7 @@ export const  ajax = (P) => {
     // 状态码的处理
     P.success && P.success(res.data)
   }).catch((error)=> {
+    console.log(error)
     P.error && P.error(error.response.data)
   })
 } //web请求: ajax封装
