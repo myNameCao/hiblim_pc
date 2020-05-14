@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-11 09:15:01
+ * @LastEditTime: 2020-05-14 14:03:57
  */
 
 import React from 'react';
@@ -17,11 +17,15 @@ function Head () {
           <h1 className="logo">
             <a href="index.html"><img src={logo} /></a>
             </h1>
-          <ul>
-            <li>
-              {/* <a href="http://www.hiblim.com">LOG IN</a> */}
-            </li>
-          </ul>
+         	 <ul>
+   	 	<li><a href="http://hk.hiblim.com/incorporation.html">COMPANY REGISTRATION</a></li>
+		<li>
+			<a href="http://hk.hiblim.com/secretary.html">COMPANY SECRETARY</a>
+		</li>
+   	<li>
+			<a href="http://hk.hiblim.com/accounting.html">ACCOUNTING & AUDITING</a>
+		</li>
+   	 </ul>
        </div>	
     </div>);
 }
