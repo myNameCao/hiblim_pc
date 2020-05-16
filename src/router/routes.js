@@ -29,6 +29,7 @@ const routes = [
   },
   {
     path: '/contactUs',
+    title:'CONTACTUS',
     component: contactUs,
   },
   {
@@ -37,6 +38,7 @@ const routes = [
     routes: [
       {
         path: '/onboarding/home',
+        title:'HOME',
         component: home
       },
      
