@@ -13,6 +13,7 @@ import Dialog from '../../components/dialog'
 import {ajax} from '../../utils/ajax'
 import './index.css'
 function Join ({history}){
+  
   const [firstName, setFirstName]  =  useState('') 
   const [lastname, setLastname]  =  useState('')
   const [email, setEmail]  =  useState('')

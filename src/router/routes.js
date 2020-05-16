@@ -20,6 +20,7 @@ const routes = [
   },
   {
     path: '/login',
+    title:'LOGIN',
     component: login,
   },
   {

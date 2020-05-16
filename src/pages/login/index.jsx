@@ -13,8 +13,8 @@ import Dialog from '../../components/dialog'
 
 import {ajax}  from '../../utils/ajax'
 import './index.less'
-function Index ({routes, history}){
-
+function Index ({title, history}){
+// document.title = title
   const [email, setEmail]  =  useState('')
   const [password, setPassword]  =  useState('')
   const [tip, setTip]  =  useState('')
@@ -30,7 +30,7 @@ async function login (){
         url:'login',
         data:{accountID:email, password:password},
         success (res){
-          if(res.data.code !== 200){
+          if(res.code !== 200){
             setTip('用户名密码不正确,请重新登录')
             return 
           }
