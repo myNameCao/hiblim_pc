@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-25 17:20:07
+ * @LastEditTime: 2020-05-25 18:18:41
  */
 import React, {useState} from 'react'
 import {ajax, checkoutTel} from '../../utils/ajax'
@@ -67,6 +67,7 @@ const addressList = [
 
 
   const [current, setcurrent] = useState(0);
+  const [type_ptice, setType_ptice] = useState(0);
   const [errorCurrent, seterrorCurrent] = useState('')//  显示错误的地方
   
   //page1
@@ -343,9 +344,9 @@ function sendAjax (){
          <div  className='welcome_txt_title'>Welcome to Hiblim!</div>
          <div  className='welcome_txt_msg'>How can we help you?</div>
          <div  className='sel_type'>
-           <div className='type_pay_item'>
+           <div onClick={()=>{setType_ptice(0)}} className={type_ptice === 0 ? 'type_pay_item  type_pay_active' : 'type_pay_item'}>
               <div  className='type_pay_title'>
-                 <div className='type_image'></div>
+                 <div className='type_image  icon-snowy'></div>
                  <div>Register Your Business</div>
               </div>
               <div   className='type_pay_msg'>
@@ -356,9 +357,9 @@ function sendAjax (){
                 <div className='price'>HK $4999</div>
               </div>
            </div>
-           <div className='type_pay_item'>
+           <div  onClick={()=>{setType_ptice(1)}} className={type_ptice === 1 ? 'type_pay_item  type_pay_active' : 'type_pay_item'}>
               <div  className='type_pay_title'>
-                 <div className='type_image'></div>
+                 <div className='type_image icon-tag-checked'></div>
                  <div>Manage Your Business</div>
               </div>
               <div   className='type_pay_msg'>

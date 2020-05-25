@@ -35,21 +35,33 @@
     width: 450px;
     height: 370px;
    
+    .type_pay_active{
+       border:2px #00c2e0 solid;
+       box-sizing: border-box;
+       .type_pay_title{
+         color: #00c2e0;
+       }
+    }
+    .type_pay_item:hover{
+      box-shadow:  0 1px 4px 0 rgba(26, 30, 34, 0.15), 0 1px 8px 0 rgba(16, 18, 20, 0.07)
+    }
     .type_pay_item{
       margin-right: 10px;
       text-align:  center;
       float: left;
       width: 200px;
       height: 350px;
-      box-shadow: 0 1px 3px 0 rgba(43, 50, 56, 0.15);
+      box-shadow: 0 1px 3px 0 rgba(65, 82, 97, 0.15);
+      
       .type_pay_title{
         border: 1px white solid;
-        height: 60%;
+        
+        height: 59%;
+        font-weight: 500;
         .type_image{
-          width: 100px;
-          height: 100px;
-          margin: 30px auto 30px;
-          border: 1px red solid;
+          height: 150px;
+          line-height: 150px;
+         font-size: 60px;
         }
       }
       .type_pay_msg{
