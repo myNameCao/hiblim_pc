@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-26 09:21:54
+ * @LastEditTime: 2020-05-26 11:06:25
  */
 import React, {useState} from 'react'
 import {ajax, checkoutTel} from '../../utils/ajax'
@@ -86,7 +86,7 @@ const addressList = [
   const [ fundsForm, setfundsForm ] = useState([])//  资金来源
   const [ fundsDes, setFundsDes ] = useState('') //  其他说明
   const [ fundsCountry, setfundsCountry ] = useState('') //  资金来源国家
-
+console.log(fundsForm)
 
   function changefunds (e){  
     
