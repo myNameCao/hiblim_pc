@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-25 18:18:41
+ * @LastEditTime: 2020-05-26 09:21:54
  */
 import React, {useState} from 'react'
 import {ajax, checkoutTel} from '../../utils/ajax'
@@ -340,7 +340,7 @@ function sendAjax (){
      <div className='home'>
       {!current ? <div className='welcome'>
          
-         <div  className='avatar'></div>
+         <div  className='avatar icon-user-circle'></div>
          <div  className='welcome_txt_title'>Welcome to Hiblim!</div>
          <div  className='welcome_txt_msg'>How can we help you?</div>
          <div  className='sel_type'>
