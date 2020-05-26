@@ -19,7 +19,7 @@ import './index.less'
    return (
      <div className='files' >
        <div className='FilesTitle'>
-           <img className='fileImage icon-dir'  src={fileImg}/>
+           <span className='fileImage icon-dir' ></span>
            Company Secretary
          </div>
        <div className='searchFiles'>
