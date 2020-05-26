@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 16:10:07
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-25 15:14:21
+ * @LastEditTime: 2020-05-26 17:47:25
  */
 
 import React from 'react';
@@ -23,7 +23,7 @@ function Main ({routes}) {
       <ul  className='nav_content'>
         <li className={ pathname === '/onboarding/home' ? 'item_tag  active_tag' : 'item_tag'}>
           <Link to="/onboarding/home">
-           <span  className='icon-home iconFont'></span>
+           <span  className='icon-Company iconFont'></span>
             Company
             </Link>
         </li>
@@ -35,7 +35,7 @@ function Main ({routes}) {
         </li>
         <li className={pathname === '/onboarding/billing' ? 'item_tag  active_tag' : 'item_tag'}>
           <Link to="/onboarding/billing">
-          <span  className='icon-office  iconFont'></span>
+          <span  className='icon-billing  iconFont'></span>
             Billing
             </Link>
         </li>
