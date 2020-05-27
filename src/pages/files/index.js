@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 
-import fileImg from './files.png'
 
 import Input from '../../components/input'
 
