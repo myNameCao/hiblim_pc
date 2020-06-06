@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-04-02 14:23:48
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-04-09 11:56:40
+ * @LastEditTime: 2020-05-16 19:59:48
  */
 import React, { Component } from "react";
 
@@ -13,13 +13,11 @@ export default function asyncComponent (importComponent) {
 
   class AsyncComponent extends Component {
     constructor (props) {
-      super(props);
-
+      super(props)
       this.state = {
         component: null
       };
     }
-
     async componentDidMount () {
       const { default: component } = await importComponent();
 
@@ -27,10 +25,9 @@ export default function asyncComponent (importComponent) {
         component: component
       });
     }
-
     render () {
       const C = this.state.component;
-
+      document.title = this.props.title || 'HIBLIM'
       return C ? <C {...this.props} /> : <Loading />;
     }
   }

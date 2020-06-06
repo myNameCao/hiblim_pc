@@ -8,7 +8,8 @@ import index from '../pages/index'
 const home = asyncComponent(() => import('../pages/home'));
 const login = asyncComponent(() => import("../pages/login"));
 const onboarding = asyncComponent(() => import("../pages/onboarding"));
-const mailroom = asyncComponent(() => import("../pages/mailroom"));
+const files = asyncComponent(() => import("../pages/files"));
+const billing = asyncComponent(() => import("../pages/billing"));
 const join = asyncComponent(() => import("../pages/join"));
 const contactUs = asyncComponent(() => import("../pages/contactUs"));
 
@@ -20,6 +21,7 @@ const routes = [
   },
   {
     path: '/login',
+    title:'LOGIN',
     component: login,
   },
   {
@@ -28,6 +30,7 @@ const routes = [
   },
   {
     path: '/contactUs',
+    title:'CONTACTUS',
     component: contactUs,
   },
   {
@@ -36,12 +39,17 @@ const routes = [
     routes: [
       {
         path: '/onboarding/home',
+        title:'HOME',
         component: home
       },
      
       {
-        path: '/onboarding/mailroom',
-        component: mailroom
+        path: '/onboarding/files',
+        component: files
+      },
+      {
+        path: '/onboarding/billing',
+        component: billing
       },
     ]
   },

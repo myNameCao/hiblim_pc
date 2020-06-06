@@ -3,7 +3,7 @@
  * @Author: @[caohefei]
  * @Date: 2020-03-31 18:25:21
  * @LastEditors: @[caohefei]
- * @LastEditTime: 2020-05-07 23:08:22
+ * @LastEditTime: 2020-05-26 11:06:25
  */
 import React, {useState} from 'react'
 import {ajax, checkoutTel} from '../../utils/ajax'
@@ -11,7 +11,7 @@ import {ajax, checkoutTel} from '../../utils/ajax'
 import successImage from './success.png'
 
 
-import './index.css'
+import './index.less'
  const list = [
    {
      node:1,
@@ -66,7 +66,8 @@ const addressList = [
  function Home (){
 
 
-  const [current, setcurrent] = useState(1);
+  const [current, setcurrent] = useState(0);
+  const [type_ptice, setType_ptice] = useState(0);
   const [errorCurrent, seterrorCurrent] = useState('')//  显示错误的地方
   
   //page1
@@ -85,7 +86,7 @@ const addressList = [
   const [ fundsForm, setfundsForm ] = useState([])//  资金来源
   const [ fundsDes, setFundsDes ] = useState('') //  其他说明
   const [ fundsCountry, setfundsCountry ] = useState('') //  资金来源国家
-
+console.log(fundsForm)
 
   function changefunds (e){  
     
@@ -337,6 +338,43 @@ function sendAjax (){
   const [ addressDes, setAddressDes ] = useState('') //  其他说明
    return (
      <div className='home'>
+      {!current ? <div className='welcome'>
+         
+         <div  className='avatar icon-user-circle'></div>
+         <div  className='welcome_txt_title'>Welcome to Hiblim!</div>
+         <div  className='welcome_txt_msg'>How can we help you?</div>
+         <div  className='sel_type'>
+           <div onClick={()=>{setType_ptice(0)}} className={type_ptice === 0 ? 'type_pay_item  type_pay_active' : 'type_pay_item'}>
+              <div  className='type_pay_title'>
+                 <div className='type_image  icon-snowy'></div>
+                 <div>Register Your Business</div>
+              </div>
+              <div   className='type_pay_msg'>
+                <p>Company Incorporation</p>
+                <p>+ Corporate Secretary</p>
+                <p>+ Registered Address</p>
+                <p>+ Business Registration</p>
+                <div className='price'>HK $4999</div>
+              </div>
+           </div>
+           <div  onClick={()=>{setType_ptice(1)}} className={type_ptice === 1 ? 'type_pay_item  type_pay_active' : 'type_pay_item'}>
+              <div  className='type_pay_title'>
+                 <div className='type_image icon-tag-checked'></div>
+                 <div>Manage Your Business</div>
+              </div>
+              <div   className='type_pay_msg'>
+                <p> Corporate Secretary</p>
+                <p>+ Registered Address</p>
+                <p>+ Business Registration</p>
+                <div className='price'>HK $3999</div>
+              </div>
+           </div>
+           
+           
+         </div>
+         <div  className='subimt_sel_type'  onClick={()=>{setcurrent(1)}}> Start Now</div>
+    
+      </div> : <div>
        <div className='progress_bar'>
         {list.map((item, index) => {
            return (<div  key={index}>
@@ -530,8 +568,8 @@ function sendAjax (){
             <div     onClick={()=>{window.location.reload()}}  className='goback'>返回</div>
            </div>}
        </div>
-
-
+       </div>
+       }
      </div>
    )
  }

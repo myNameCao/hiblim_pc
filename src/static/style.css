@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?5gln1x');
-  src:  url('fonts/icomoon.eot?5gln1x#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?5gln1x') format('truetype'),
-    url('fonts/icomoon.woff?5gln1x') format('woff'),
-    url('fonts/icomoon.svg?5gln1x#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?jpgo4f');
+  src:  url('fonts/icomoon.eot?jpgo4f#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?jpgo4f') format('truetype'),
+    url('fonts/icomoon.woff?jpgo4f') format('woff'),
+    url('fonts/icomoon.svg?jpgo4f#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,17 +25,43 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-home:before {
+.icon-Company:before {
   content: "\e900";
+}
+.icon-billing:before {
+  content: "\e903";
+}
+.icon-select:before {
+  content: "\e910";
+}
+.icon-notsel:before {
+  content: "\e911";
+}
+.icon-alldir:before {
+  content: "\e90e";
+  color: #636d8b;
+}
+.icon-dir:before {
+  content: "\e90f";
+  color: #00c2e0;
+}
+.icon-file:before {
+  content: "\e90c";
+  color: #2f85fc;
+}
+.icon-folder:before {
+  content: "\e90d";
+  color: #0d4966;
+}
+.icon-search:before {
+  content: "\e90b";
+  color: #8a8a8a;
 }
 .icon-mail-envelope-open:before {
   content: "\e901";
 }
 .icon-inbox-document-text:before {
   content: "\e902";
-}
-.icon-office:before {
-  content: "\e903";
 }
 .icon-radio-unchecked:before {
   content: "\e904";
@@ -51,4 +77,13 @@
 }
 .icon-trash-can:before {
   content: "\e908";
+}
+.icon-user-circle:before {
+  content: "\f2bd";
+}
+.icon-snowy:before {
+  content: "\e909";
+}
+.icon-tag-checked:before {
+  content: "\e90a";
 }
